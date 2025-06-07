@@ -131,7 +131,7 @@ function PortfolioContent() {
     }
 
     fetchRepos()
-  }, [])
+  },)
 
   const skills = [
     { name: "HTML5", icon: "🌐" },
@@ -265,7 +265,7 @@ function PortfolioContent() {
                 <span className={`font-semibold ${theme === "light" ? "text-blue-600" : "text-sky-400"}`}>
                   Muhammad Sibtain
                 </span>
-                , a Computer Science student with a solid foundation in programming, algorithms, and system-level concepts. I'm comfortable working with languages like C++, Java, and Python, and I enjoy applying my classroom knowledge to hands-on projects in areas like OS concepts, testing, and full-stack development.
+                , a Computer Science student with a solid foundation in programming, algorithms, and system-level concepts. I am comfortable working with languages like C++, Java, and Python, and I enjoy applying my classroom knowledge to hands-on projects in areas like OS concepts, testing, and full-stack development.
               </p>
               <p>
                 I have a passion for building things that people love to use. I want to be a{" "}
