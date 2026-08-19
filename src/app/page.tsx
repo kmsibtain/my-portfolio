@@ -2,24 +2,18 @@
 
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { ChevronDown, Github, Linkedin, Twitter, ExternalLink, GitBranch } from "lucide-react"
+import { Github, Linkedin, Twitter, ExternalLink, GitBranch } from "lucide-react"
 import { Button } from "./components/ui/button"
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext"
 import ThemeToggle from "./components/ThemeToggle"
+import HeroSection from "./components/HeroSection"
 import { Rouge_Script } from 'next/font/google'
-import { Iceberg } from 'next/font/google'
 import { Merriweather } from 'next/font/google'
 
 const rougeScript = Rouge_Script({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
-})
-
-const iceberg = Iceberg({
-  weight: '400',
-  subsets: ['latin'],
-  
 })
 
 const merriweather = Merriweather({
@@ -214,34 +208,10 @@ function PortfolioContent() {
       {/* Scroll Container */}
       <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-container">
         {/* Hero Section */}
-        <section
-          id="home"
-          className={`h-screen flex items-center justify-center snap-start transition-colors duration-300 ${
-            theme === "light"
-              ? "bg-gradient-to-br from-gray-50 via-white to-blue-50"
-              : "bg-gradient-to-br from-slate-800 via-slate-700 to-sky-800"
-          } ${merriweather.className}`}
-        >
-          <div className={`text-center px-6 ${theme === "light" ? "text-gray-800" : "text-white"}`}>
-            <div className="text-6xl mb-4">👋</div>
-            <h1 className="text-2xl mb-4">Hi,</h1>
-            <h2 className="text-3xl mb-6">My name is</h2>
-            <h1
-              className={`text-6xl md:text-8xl font-bold mb-8 text-transparent bg-clip-text ${
-                theme === "light"
-                  ? "bg-gradient-to-r from-blue-500 to-blue-700"
-                  : "bg-gradient-to-r from-sky-400 to-sky-600"
-              } ${iceberg.className}`}
-              style={{ WebkitTextStroke: theme === "light" ? "2px #3b82f6" : "2px #0ea5e9" }}
-            >
-              Muhammad Sibtain
-            </h1>
-            <p className="text-2xl mb-12">I am a Web Developer 💻</p>
-            <div className="animate-bounce">
-              <ChevronDown className={`w-8 h-8 mx-auto ${theme === "light" ? "text-gray-800" : "text-white"}`} />
-            </div>
-          </div>
-        </section>
+        <HeroSection
+          onScrollToProjects={() => scrollToSection("projects")}
+          onScrollToContact={() => scrollToSection("contact")}
+        />
 
         {/* About Section */}
         <section
